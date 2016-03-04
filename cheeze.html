@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CHEEZE!</title>
+  <style>
+    body {
+      text-align: center;
+      font-size: 64px;
+      font-family: helvetica, arial, sans-serif;
+      overflow: hidden;
+    }
+    .cheeze {
+      margin-top: 244px;
+      margin-bottom: 128px;
+      animation: biggify 1500ms linear infinite;
+    }
+    .spinner {
+      animation: spin 2000ms linear infinite; 
+    }
+
+    @-moz-keyframes spin {
+        from { -moz-transform: rotate(0deg); }
+        to { -moz-transform: rotate(360deg); }
+    }
+    @-webkit-keyframes spin {
+        from { -webkit-transform: rotate(0deg); }
+        to { -webkit-transform: rotate(360deg); }
+    }
+    @keyframes spin {
+        from {transform:rotate(0deg);}
+        to {transform:rotate(360deg);}
+    }
+
+    @-moz-keyframes biggify {
+        0% { -moz-transform: scale(1); }
+        50% { -moz-transform: scale(3); }
+        100% { -moz-transform: scale(1); }
+    }
+    @-webkit-keyframes biggify {
+        0% { -webkit-transform: scale(1); }
+        50% { -webkit-transform: scale(3); }
+        100% { -webkit-transform: scale(1); }
+    }
+    @keyframes biggify {
+        0% {transform:scale(1);}
+        50% {transform:scale(3);}
+        100% {transform:scale(1);}
+    }
+  </style>
+</head>
+<body>
+  <div class="spinner">
+    <p class="cheeze"><img src="cheeze.png" alt="🧀" /></p>
+  </div>
+  <p>You've been cheezed by Bill Mei!</p>
+</body>
+</html>
