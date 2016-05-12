@@ -54,15 +54,32 @@
   <div class="spinner">
     <p class="cheeze"><img src="cheeze.png" alt="🧀" /></p>
   </div>
-  <p>You've been cheezed by Bill Mei!</p>
+  <p>You've been cheezed by <span id="cheezer">Bill Mei</span>!</p>
 
   <script>
-    function lol() {
-      window.location = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
-    }
-    var body = document.getElementById('content');
-    body.addEventListener('click', lol);
-    body.addEventListener('keydown', lol);
+    (function() {
+      function toSentenceCase(sentence) {
+        var words = sentence.split('-');
+        for (var i = 0; i < words.length; i++) {
+          words[i] = words[i].charAt(0).toUpperCase() + words[i].substr(1).toLowerCase();
+        }
+        return words.join(' ');
+      }
+
+      function lol() {
+        window.location = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+      }
+
+      var urlHash = window.location.hash.substring(1);
+      if (urlHash.length) {
+        var cheezer = document.getElementById('cheezer');
+        cheezer.textContent = toSentenceCase(urlHash); // Probably vulnerable to XSS?
+      }
+
+      var body = document.getElementById('content');
+      body.addEventListener('click', lol);
+      body.addEventListener('keydown', lol);
+    })()
   </script>
 </body>
 </html>
